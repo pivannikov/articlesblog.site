@@ -1,4 +1,4 @@
-@extends ('layouts.layout')
+@extends ('layouts.layout' , ['title' => 'All posts'])
 
 @section ('content')
 

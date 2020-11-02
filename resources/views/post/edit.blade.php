@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('layouts.layout', ['title' => $post->title . ' edit'])
 
 @section('content')
     <div class="container">
@@ -10,11 +10,11 @@
                     @method('PUT')
                     <div class="form-group">
                         <label for="title">Title</label>
-                        <input type="text" class="form-control" name="title" id="title" placeholder="Title" value="{{ $post->title }}" required>
-                    </div>
-                    {{--                    hidden user--}}
-                    <div class="form-group">
-                        <input type="text" class="form-control" name="user_id" value="1" hidden>
+                        <input type="text"
+                               class="form-control"
+                               name="title"
+                               id="title"
+                               value="{{ $post->title }}" required>
                     </div>
 
                     <div class="form-group">
@@ -31,7 +31,7 @@
                     </div>
                     <div class="form-group">
                         <label for="summary-ckeditor">Text</label>
-                        <textarea class="form-control" name="body" id="summary-ckeditor" placeholder="Content" rows="20" required>{!! $post->body !!}</textarea>
+                        <textarea class="form-control" name="body" id="summary-ckeditor" rows="20" required>{!! $post->body !!}</textarea>
                     </div>
                     <h4 class="mt-5">Image:</h4>
                     <div class="mb-5 pb-3 shadow-sm p-3 mb-5 bg-white rounded" style="border-bottom: 1px solid lightgray;">

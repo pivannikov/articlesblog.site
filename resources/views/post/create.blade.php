@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('layouts.layout', ['title' => 'Create new post'])
 
 @section('content')
     <div class="container">
@@ -21,16 +21,6 @@
                             id="title"
                             name="title"
                             value="{{ old('title') }}">
-                    </div>
-
-{{--                    hidden user--}}
-                    <div class="form-group">
-                        <input
-                            type="text"
-                            class="form-control"
-                            name="user_id"
-                            value="1"
-                            hidden>
                     </div>
 
                     <div class="form-group">

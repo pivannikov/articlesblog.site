@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
@@ -44,8 +45,8 @@ class PostController extends Controller
         ]);
 
         $post = new Post();
+        $post->user_id = Auth::id();
         $post->title = $request->input('title');
-        $post->user_id = $request->input('user_id');
         $post->category_id = $request->input('category_id');
         $post->excerpt = strip_tags(substr($request->input('body'), 0, 298));
         $post->body = strip_tags($request->input('body'), ['p', 'i', 'b', 'h5']);
@@ -84,6 +85,13 @@ class PostController extends Controller
     public function edit($id)
     {
         $post = Post::findOrFail($id);
+        if (!$this->checkRights($post)) {
+            return redirect()->route('post.index')->withErrors('You have no permissions');
+        }
+
+//        if (Auth::id() != $post->user_id) {
+//            return redirect()->route('post.index')->withErrors('You can edit only your posts');
+//        }
         return view('post.edit', compact('post'));
     }
 
@@ -98,11 +106,18 @@ class PostController extends Controller
     {
         $post = Post::findOrFail($id);
 
+        if (!$this->checkRights($post)) {
+            return redirect()->route('post.index')->withErrors('You have no permissions');
+        }
+
+//        if (Auth::id() != $post->user_id) {
+//            return redirect()->route('post.index')->withErrors('You can edit only your posts');
+//        }
+
         $post->title = strip_tags($request->input('title'));
-        $post->user_id = $request->input('user_id');
         $post->category_id = $request->input('category_id');
         $post->excerpt = strip_tags(substr($request->input('body'), 0, 298));
-        $post->body = strip_tags($request->input('body'), ['p', 'i', 'b', 'h5']);
+        $post->body = strip_tags($request->input('body'), '<p><i><b><h5><strong><em><s></s>');
         $source = $request->file('image');
 
         if ($source) {
@@ -133,6 +148,14 @@ class PostController extends Controller
     {
         $post = Post::findOrFail($id);
 
+        if (!$this->checkRights($post)) {
+            return redirect()->route('post.index')->withErrors('You have no permissions');
+        }
+
+//        if (Auth::id() != $post->user_id) {
+//            return redirect()->route('post.index')->withErrors('You can delete only your posts');
+//        }
+
         if (!empty($post->image)) {
             $name = basename($post->image);
             if (Storage::exists('public/postsimg/' . $name)) {
@@ -143,6 +166,10 @@ class PostController extends Controller
         $post->delete();
 
         return redirect()->route('post.index')->with('success', 'Post has been deleted!');
+    }
+
+    private function checkRights(Post $post) {
+        return Auth::id() == $post->user_id || Auth::id() == 1;
     }
 
     public function search(Request $request)

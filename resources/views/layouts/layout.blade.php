@@ -11,8 +11,8 @@
 
     <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
 
+    <title>{{ $title ?? 'ArticleBlog' }}</title>
 
-    <title>ArticleBlog</title>
     <style>
         #gf {
             font-family: 'Kaushan Script', cursive;
@@ -41,19 +41,59 @@
                         <li class="nav-item {{ strpos(Request::path(), 'categor') !== false ? 'active' : ''}}">
                             <a class="nav-link" href="{{ route('category.index') }}">Category</a>
                         </li>
-                        <li class="nav-item {{ strpos(Request::path(), 'create') !== false ? 'active' : ''}}">
-                            <a class="nav-link" href="{{ route('post.create') }}">Create post</a>
-                        </li>
+                        @auth
+                            <li class="nav-item {{ strpos(Request::path(), 'home') !== false ? 'active' : ''}}">
+                                <a class="nav-link" href="{{ route('home') }}">My Dashboard</a>
+                            </li>
+                        @endauth
                     </ul>
                     <span class="navbar-text text-white mr-5">
-                            <ul class="navbar-nav mr-auto">
-                                <li class="nav-item {{ Request::path() == 'login' ? 'active' : ''}}">
-                                    <a class="nav-link" href="/login">Login</a>
+
+
+
+                        <ul class="navbar-nav ml-auto">
+                        <!-- Authentication Links -->
+                        @guest
+                                <li class="nav-item">
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            </li>
+                                @if (Route::has('register'))
+                                    <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
-                                <li class="nav-item {{ Request::path() == 'register' ? 'active' : ''}}">
-                                    <a class="nav-link" href="/register">Registration</a>
-                                </li>
-                            </ul>
+                                @endif
+                            @else
+                                <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }}
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                            @endguest
+                    </ul>
+
+
+
+
+{{--                            <ul class="navbar-nav mr-auto">--}}
+{{--                                <li class="nav-item {{ Request::path() == 'login' ? 'active' : ''}}">--}}
+{{--                                    <a class="nav-link" href="/login">Login</a>--}}
+{{--                                </li>--}}
+{{--                                <li class="nav-item {{ Request::path() == 'register' ? 'active' : ''}}">--}}
+{{--                                    <a class="nav-link" href="/register">Register</a>--}}
+{{--                                </li>--}}
+{{--                            </ul>--}}
                     </span>
                     <span class="navbar-text text-white">
                            <span class="time"><?=date('d-m-Y'); ?></span>

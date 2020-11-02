@@ -1,4 +1,4 @@
-@extends ('layouts.layout')
+@extends ('layouts.layout', ['title' => $post->title])
 
 @section ('content')
     <div class="container">
@@ -29,20 +29,31 @@
                 </div>
                 <div class="row mt-2">
                     <div class="col-auto mr-auto">
-                        <button type="button" class="btn btn-secondary btn-lg" onclick="location.href='{{ url()->previous() }}'">Back</button>
+                        <button type="button"
+                                class="btn btn-secondary btn-lg"
+                                onclick="location.href='{{ url()->previous() }}'">Back
+                        </button>
                     </div>
-                    <div class="col-auto">
-                        <button type="button" class="btn btn-success btn-lg" onclick="location.href='{{ route('post.edit', $post->id) }}'">Edit</button>
-                    </div>
-                    <div class="col-auto">
-                        <form action="{{ route('post.delete', $post->id) }}"
-                              method="post" onsubmit="return confirm('Are you sure?')"
-                              class="d-inline">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger btn-lg">Delete</button>
-                        </form>
-                    </div>
+                    @auth
+                        @if(auth()->id() == $post->user_id || auth()->id() == 1)
+                            <div class="col-auto">
+                                <button
+                                    type="button"
+                                    class="btn btn-success btn-lg"
+                                    onclick="location.href='{{ route('post.edit', $post->id) }}'">Edit
+                                </button>
+                            </div>
+                            <div class="col-auto">
+                                <form action="{{ route('post.destroy', $post->id) }}"
+                                      method="post" onsubmit="return confirm('Are you sure?')"
+                                      class="d-inline">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger btn-lg">Delete</button>
+                                </form>
+                            </div>
+                        @endif
+                    @endauth
                 </div>
 
             </div>

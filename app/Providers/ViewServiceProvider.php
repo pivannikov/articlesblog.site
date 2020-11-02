@@ -24,6 +24,6 @@ class ViewServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-//        view()->share('categories', Category::all() );
+        view()->share('categories', Category::all() );
     }
 }
