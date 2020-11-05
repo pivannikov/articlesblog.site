@@ -43,7 +43,7 @@
                         </li>
                         @auth
                             <li class="nav-item {{ strpos(Request::path(), 'home') !== false ? 'active' : ''}}">
-                                <a class="nav-link" href="{{ route('home') }}">My Dashboard</a>
+                                <a class="nav-link" href="{{ route('home.home') }}">My Dashboard</a>
                             </li>
                         @endauth
                     </ul>
@@ -83,17 +83,6 @@
                             @endguest
                     </ul>
 
-
-
-
-{{--                            <ul class="navbar-nav mr-auto">--}}
-{{--                                <li class="nav-item {{ Request::path() == 'login' ? 'active' : ''}}">--}}
-{{--                                    <a class="nav-link" href="/login">Login</a>--}}
-{{--                                </li>--}}
-{{--                                <li class="nav-item {{ Request::path() == 'register' ? 'active' : ''}}">--}}
-{{--                                    <a class="nav-link" href="/register">Register</a>--}}
-{{--                                </li>--}}
-{{--                            </ul>--}}
                     </span>
                     <span class="navbar-text text-white">
                            <span class="time"><?=date('d-m-Y'); ?></span>

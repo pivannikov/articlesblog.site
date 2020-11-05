@@ -28,7 +28,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('post.create');
+        return view('home.create');
     }
 
     /**
@@ -49,7 +49,7 @@ class PostController extends Controller
         $post->title = $request->input('title');
         $post->category_id = $request->input('category_id');
         $post->excerpt = strip_tags(substr($request->input('body'), 0, 298));
-        $post->body = strip_tags($request->input('body'), ['p', 'i', 'b', 'h5']);
+        $post->body = strip_tags($request->input('body'), '<p><i><b><h5><strong><em><s>');
         $source = $request->file('image');
 
         if ($source) {

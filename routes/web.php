@@ -32,4 +32,6 @@ Route::get('/category/{name}', 'CategoryController@show')->where('name', '[a-z]+
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home.home');
+Route::get('/home/profile', 'HomeController@profile')->name('home.profile');
+Route::get('/home/post/create', 'PostController@create')->name('home.create');
