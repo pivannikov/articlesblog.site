@@ -3,8 +3,7 @@
 /public/storage
 /storage/*.key
 /vendor
-/.idea
-/_ide_helper.php
+.idea/
 .env
 .env.backup
 .phpunit.result.cache
