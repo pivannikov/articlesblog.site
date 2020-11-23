@@ -19,7 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e402359a-d5a7-4579-b948-ba071a282f51" name="Default Changelist" comment="" />
+    <list default="true" id="e402359a-d5a7-4579-b948-ba071a282f51" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -156,6 +159,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_MARK_IGNORED_FILES_AS_EXCLUDED" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/public/images" />
@@ -202,6 +206,7 @@
       <workItem from="1604427867313" duration="8367000" />
       <workItem from="1604492371374" duration="9916000" />
       <workItem from="1604586452047" duration="6438000" />
+      <workItem from="1606154641239" duration="1014000" />
     </task>
     <servers />
   </component>
@@ -233,10 +238,10 @@
       <screen x="0" y="150" width="1920" height="930" />
     </state>
     <state x="659" y="339" width="721" height="445" key="EditFileWatcherDialog/1920.123.1366.768/0.150.1920.930@0.150.1920.930" timestamp="1603629473182" />
-    <state x="860" y="468" width="714" height="221" key="Github.ShareDialog" timestamp="1603832424111">
+    <state x="860" y="468" width="714" height="221" key="Github.ShareDialog" timestamp="1606154668084">
       <screen x="0" y="150" width="1920" height="930" />
     </state>
-    <state x="860" y="468" width="714" height="221" key="Github.ShareDialog/1920.123.1366.768/0.150.1920.930@0.150.1920.930" timestamp="1603832424111" />
+    <state x="860" y="468" width="714" height="221" key="Github.ShareDialog/1920.123.1366.768/0.150.1920.930@0.150.1920.930" timestamp="1606154668084" />
     <state x="808" y="518" width="399" height="149" key="NewPhpFileDialog" timestamp="1604597857593">
       <screen x="0" y="150" width="1920" height="930" />
     </state>
