@@ -37,14 +37,15 @@
                 @foreach(Auth::user()->posts as $post)
                     <div class="col mt-3">
                         <div class="card">
-
-                            @isset($post->image)
                             <div id="pic_welcome_wrapper" class="shadow-sm p-3 mb-3 bg-white rounded">
                                 <a href="{{ route('post.show', $post->id) }}">
-                                    <img src="{{ $post->image }}" class="card-img-top" id="pic">
+                                    @isset($post->image)
+                                        <img src="{{ $post->image }}" class="card-img-top" id="pic">
+                                    @else
+                                        <img src="{{ asset('images/no_image.jpg') }}" class="card-img-top" id="pic">
+                                    @endisset
                                 </a>
                             </div>
-                            @endisset
                                 <div class="card-body">
                                     <a href="{{ route('post.show', $post->id) }}"><h5 class="card-title">{{ $post->title }}</h5></a>
                                     <p>{{ $post->excerpt }}...</p>

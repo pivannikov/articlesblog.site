@@ -2,6 +2,10 @@ body {
   font-size: 16px;
 }
 
+.big-letters {
+  font-size: 24px;
+}
+
 a {
   color: black;
 }
@@ -39,6 +43,10 @@ a:hover {
   color: black;
 }
 
+.pagination > li > a:hover {
+  color: gray;
+}
+
 .pagination > .active > a,
 .pagination > .active > a:focus,
 .pagination > .active > a:hover,
@@ -46,7 +54,7 @@ a:hover {
 .pagination > .active > span:focus,
 .pagination > .active > span:hover {
   background-color: gray;
-  border-color: black;
+  border-color: transparent;
 }
 
 #pic {
@@ -68,6 +76,10 @@ a:hover {
 #pic_show_wrapper {
   width: 600px;
   height: 400px;
+}
+
+.dropdown-item {
+  color: green;
 }
 
 /*# sourceMappingURL=admin.css.map */

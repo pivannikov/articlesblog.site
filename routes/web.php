@@ -28,7 +28,7 @@ Route::delete('/post/destroy/{id}', 'PostController@destroy')->name('post.destro
 //Route::resource('post', 'PostController')->middleware('auth');
 
 Route::get('/categories', 'CategoryController@index')->name('category.index');
-Route::get('/category/{name}', 'CategoryController@show')->where('name', '[a-z]+')->name('category.show');
+Route::get('/category/{slug}', 'CategoryController@show')->name('category.show');
 
 Auth::routes();
 

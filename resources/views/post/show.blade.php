@@ -13,11 +13,13 @@
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">{{ $post->title }}</h5>
-                        @isset($post->image)
                             <div id="pic_show_wrapper" class="shadow-sm p-3 mb-5 bg-white rounded">
-                                <img src="{{ $post->image }}" id="pic">
+                                @isset($post->image)
+                                    <img src="{{ $post->image }}" id="pic">
+                                @else
+                                    <img src="{{ asset('images/no_image.jpg') }}" id="pic">
+                                @endisset
                             </div>
-                        @endisset
                         <p class="card-text">{!! $post->body !!}</p>
                         <div class="card-footer text-muted">
                             Category: <a href="{{ route('category.show', $post->category->slug) }}">{{ $post->category->name }}</a>

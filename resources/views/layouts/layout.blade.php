@@ -26,11 +26,11 @@
     <div class = "row mt-1">
         <div class = "col-md-12">
             <nav class="navbar navbar-expand-lg navbar-dark bg-danger" id="gf">
-                <a class="navbar-brand" href="/">#ArticlesBlog</a>
+                <a class="navbar-brand big-letters" href="/">#ArticlesBlog</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarText">
+                <div class="collapse navbar-collapse big-letters" id="navbarText">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item {{ Request::path() == '/' ? 'active' : ''}}">
                             <a class="nav-link" href="{{ route('main.welcome') }}">Home<span class="sr-only">(current)</span></a>
@@ -40,6 +40,9 @@
                         </li>
                         <li class="nav-item {{ strpos(Request::path(), 'categor') !== false ? 'active' : ''}}">
                             <a class="nav-link" href="{{ route('category.index') }}">Category</a>
+                        </li>
+                        <li class="nav-item {{ strpos(Request::path(), 'contact') !== false ? 'active' : ''}}">
+                            <a class="nav-link" href="{{ route('main.contact') }}">Contact</a>
                         </li>
                         @auth
                             <li class="nav-item {{ strpos(Request::path(), 'home') !== false ? 'active' : ''}}">
@@ -55,21 +58,21 @@
                         <!-- Authentication Links -->
                         @guest
                                 <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link {{ strpos(Request::path(), 'login') !== false ? 'active' : ''}}" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                                 @if (Route::has('register'))
                                     <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link {{ strpos(Request::path(), 'register') !== false ? 'active' : ''}}" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                                 @endif
                             @else
                                 <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
+                                    {{ ucfirst(Auth::user()->name) }}
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                    <a class="dropdown-item text-dark" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
@@ -85,7 +88,7 @@
 
                     </span>
                     <span class="navbar-text text-white">
-                           <span class="time"><?=date('d-m-Y'); ?></span>
+                           <span class="time active"><?=date('d-m-Y'); ?></span>
                     </span>
                 </div>
             </nav>
@@ -109,7 +112,7 @@
 
     <div class = "row mt-1" id="gf">
         <div class = "col-md-12">
-            <footer class="page-footer font-small bg-light">
+            <footer class="page-footer font-small bg-light big-letters">
                 <div class="row justify-content-around">
 
                     <div class="footer-copyright py-3 text-center text-secondary col-md-4">© <?=date('Y') ?> Copyright:
@@ -118,7 +121,7 @@
 
                     <div class="col-md-4 align-self-center">
                         <form class="form-inline my-2 my-lg-0" action="{{ route('post.search')}}">
-                            <input class="form-control mr-sm-2" type="search" placeholder="Search" name="search" aria-label="Search">
+                            <input class="form-control mr-sm-2" type="search" name="search" aria-label="Search">
                             <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
                         </form>
                     </div>

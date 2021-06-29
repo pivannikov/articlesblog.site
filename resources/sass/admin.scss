@@ -3,7 +3,9 @@
 body {
     font-size: 16px;
 }
-
+.big-letters {
+    font-size: 24px;
+}
 a {
     color: black;
 }
@@ -33,6 +35,9 @@ a:hover {
 .pagination > li > span {
     color: black;
 }
+.pagination > li > a:hover {
+    color: gray;
+}
 
 .pagination > .active > a,
 .pagination > .active > a:focus,
@@ -41,8 +46,9 @@ a:hover {
 .pagination > .active > span:focus,
 .pagination > .active > span:hover {
     background-color: gray;
-    border-color: black;
+    border-color: transparent;
 }
+
 
 //#main_pic {
 //    //display: inline-block;
@@ -68,3 +74,7 @@ a:hover {
     width: 600px;
     height: 400px;
 }
+.dropdown-item {
+    color: green;
+}
+

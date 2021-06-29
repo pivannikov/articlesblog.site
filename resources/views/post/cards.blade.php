@@ -14,20 +14,17 @@
                         <div class="card-body">
                             <h5 class="card-title"><a href="{{ route('post.show', $post->id) }}">{{ $post->title }}</a></h5>
                             <div>
-                                @isset($post->image)
-                                    <div id="pic_cards_wrapper" class="shadow-sm p-3 mb-5 bg-white rounded">
+                                <div id="pic_cards_wrapper" class="shadow-sm p-3 mb-5 bg-white rounded">
+                                    @isset($post->image)
                                         <img src="{{ $post->image }}" id="pic">
-                                    </div>
-                                    <div>
-                                        <p class="card-text">{{ $post->excerpt }}...</p>
-                                        <a href="{{ route('post.show', $post->id) }}" class="btn btn-light">read more...</a>
-                                    </div>
-                                @else
-                                    <div>
-                                        <p class="card-text">{{ $post->excerpt }}...</p>
-                                        <a href="{{ route('post.show', $post->id) }}" class="btn btn-light">read more...</a>
-                                    </div>
-                                @endisset
+                                    @else
+                                        <img src="{{ asset('images/no_image.jpg') }}" id="pic">
+                                    @endisset
+                                </div>
+                                <div>
+                                    <p class="card-text">{{ $post->excerpt }}...</p>
+                                    <a href="{{ route('post.show', $post->id) }}" class="btn btn-light">read more...</a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -50,4 +47,5 @@
 
 
 @endsection
+
 

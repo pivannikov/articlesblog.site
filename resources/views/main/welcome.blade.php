@@ -24,7 +24,7 @@
                             $banners = scandir('../public/images');
                             $output_banners = array_slice($banners, 3);
                         @endphp
-                        @for ($i = 0; $i < count($output_banners); $i++)
+                        @for ($i = 1; $i < count($output_banners); $i++)
                             <div class="carousel-item">
                                 <img src="/images/{{ $output_banners[$i] }}" class="d-block w-30" width="1500" height="300" style="filter: grayscale(90%);">
                             </div>
@@ -47,8 +47,8 @@
         <div class="row mt-5">
             <div class="col-md-12">
                 <h3 class="font-weight-bold">About this blog</h3>
-                <p class="text-justify">Ambitioni dedisse scripsisse iudicaretur. Cras mattis iudicium purus sit amet fermentum. Donec sed odio operae, eu vulputate felis rhoncus. Praeterea iter est quasdam res quas ex communi. At nos hinc posthac, sitientis piros Afros. Petierunt uti sibi concilium totius Galliae in diem certam indicere. Cras mattis iudicium purus sit amet fermentum.
-                </p>
+                <p class="text-justify">You can register to post an article or use ready-made credentials:</p>
+                <p class="text-justify">Login: user@example.com <br>Password:123</p>
             </div>
         </div>
 
@@ -62,7 +62,7 @@
                                     @isset($post->image)
                                         <img src="{{ $post->image }}" class="card-img-top" id="pic">
                                     @else
-                                        <img src="https://picsum.photos/300" class="card-img-top" id="pic">
+                                        <img src="{{ asset('images/no_image.jpg') }}" class="card-img-top" id="pic">
                                     @endisset
                                 </a>
                             </div>
