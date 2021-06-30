@@ -25,27 +25,28 @@
 
     <div class = "row mt-1">
         <div class = "col-md-12">
-            <nav class="navbar navbar-expand-lg navbar-dark bg-danger" id="gf">
+            <div id="app">
+                <nav class="navbar navbar-expand-lg navbar-dark bg-danger" id="gf">
                 <a class="navbar-brand big-letters" href="/">#ArticlesBlog</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse big-letters" id="navbarText">
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item {{ Request::path() == '/' ? 'active' : ''}}">
-                            <a class="nav-link" href="{{ route('main.welcome') }}">Home<span class="sr-only">(current)</span></a>
+                        <li class="nav-item @linkactive('/')">
+                            <a class="nav-link" href="{{ route('main.welcome') }}">Home</a>
                         </li>
-                        <li class="nav-item {{ strpos(Request::path(), 'post') !== false ? 'active' : ''}}">
+                        <li class="nav-item @linkactive('posts')">
                             <a class="nav-link" href="{{ route('post.index') }}">All posts</a>
                         </li>
-                        <li class="nav-item {{ strpos(Request::path(), 'categor') !== false ? 'active' : ''}}">
+                        <li class="nav-item @linkactive('categories')">
                             <a class="nav-link" href="{{ route('category.index') }}">Category</a>
                         </li>
-                        <li class="nav-item {{ strpos(Request::path(), 'contact') !== false ? 'active' : ''}}">
+                        <li class="nav-item @linkactive('contact')">
                             <a class="nav-link" href="{{ route('main.contact') }}">Contact</a>
                         </li>
                         @auth
-                            <li class="nav-item {{ strpos(Request::path(), 'home') !== false ? 'active' : ''}}">
+                            <li class="nav-item @linkactive('home')">
                                 <a class="nav-link" href="{{ route('home.home') }}">My Dashboard</a>
                             </li>
                         @endauth
@@ -58,11 +59,11 @@
                         <!-- Authentication Links -->
                         @guest
                                 <li class="nav-item">
-                                <a class="nav-link {{ strpos(Request::path(), 'login') !== false ? 'active' : ''}}" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link @linkactive('login')" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                                 @if (Route::has('register'))
                                     <li class="nav-item">
-                                    <a class="nav-link {{ strpos(Request::path(), 'register') !== false ? 'active' : ''}}" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link @linkactive('register')" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                                 @endif
                             @else
@@ -92,6 +93,7 @@
                     </span>
                 </div>
             </nav>
+            </div>
         </div>
     </div>
 
@@ -121,8 +123,8 @@
 
                     <div class="col-md-4 align-self-center">
                         <form class="form-inline my-2 my-lg-0" action="{{ route('post.search')}}">
-                            <input class="form-control mr-sm-2" type="search" name="search" aria-label="Search">
-                            <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
+                            <input class="form-control mr-sm-2 big-letters" type="search" name="search" aria-label="Search">
+                            <button class="btn btn-outline-secondary big-letters my-2 my-sm-0" type="submit">Search</button>
                         </form>
                     </div>
 

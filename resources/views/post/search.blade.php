@@ -30,6 +30,10 @@
             </div>
         @else
             <p>Nothing found by your request!</p>
+            <button type="button"
+                    class="btn btn-secondary btn-lg"
+                    onclick="location.href='{{ url()->previous() }}'">Back
+            </button>
         @endif
     </div>
 @endsection

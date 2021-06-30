@@ -13,11 +13,11 @@
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">{{ $post->title }}</h5>
-                            <div id="pic_show_wrapper" class="shadow-sm p-3 mb-5 bg-white rounded">
+                            <div class="shadow-sm p-3 mb-5 bg-white rounded">
                                 @isset($post->image)
-                                    <img src="{{ $post->image }}" id="pic">
+                                    <img src="{{ $post->image }}" id="pic" class="img-fluid">
                                 @else
-                                    <img src="{{ asset('images/no_image.jpg') }}" id="pic">
+                                    <img src="{{ asset('images/no_image.jpg') }}" id="pic" class="img-fluid">
                                 @endisset
                             </div>
                         <p class="card-text">{!! $post->body !!}</p>
