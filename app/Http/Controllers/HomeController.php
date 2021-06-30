@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Middleware\Authenticate;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -31,5 +32,12 @@ class HomeController extends Controller
     public function profile()
     {
         return view('home.profile');
+    }
+
+    public function report()
+    {
+        $users = User::all();
+
+        return view('home.report', compact('users'));
     }
 }

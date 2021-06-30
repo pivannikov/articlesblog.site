@@ -13,11 +13,6 @@ class MainController extends Controller
         return view('main.welcome', compact('posts'));
     }
 
-    public function contact()
-    {
-        return view('main.contact');
-    }
-
 
 }
 

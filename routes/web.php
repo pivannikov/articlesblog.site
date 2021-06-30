@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,7 +15,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'MainController@welcome')->name('main.welcome');
-Route::get('/contact', 'MainController@contact')->name('main.contact');
 
 Route::get('/post/search', 'PostController@search')->name('post.search');
 
@@ -35,3 +35,4 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home.home');
 Route::get('/home/profile', 'HomeController@profile')->name('home.profile');
 Route::get('/home/post/create', 'PostController@create')->name('home.create');
+Route::get('/home/report', 'HomeController@report')->name('home.report')->middleware('auth');

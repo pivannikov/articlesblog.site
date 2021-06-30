@@ -42,9 +42,6 @@
                         <li class="nav-item @linkactive('categories')">
                             <a class="nav-link" href="{{ route('category.index') }}">Category</a>
                         </li>
-                        <li class="nav-item @linkactive('contact')">
-                            <a class="nav-link" href="{{ route('main.contact') }}">Contact</a>
-                        </li>
                         @auth
                             <li class="nav-item @linkactive('home')">
                                 <a class="nav-link" href="{{ route('home.home') }}">My Dashboard</a>
