@@ -26,7 +26,7 @@
                     <div class="col-md-6">
                         <ul class="list-group">
                             <li class="list-group-item"><span class="text-muted">Name: </span><strong>{{ ucfirst(Auth::user()->name) }}</strong></li>
-                            <li class="list-group-item"><span class="text-muted">Privilege:</span><strong> {{ Auth::user()->id == 6 ? 'admin' : 'user' }}</strong></li>
+                            <li class="list-group-item"><span class="text-muted">Privilege:</span><strong> {{ Auth::user()->id == env('ADMIN_ID') ? 'admin' : 'user' }}</strong></li>
                             <li class="list-group-item"><span class="text-muted">Email:</span><strong> {{ Auth::user()->email }}</strong></li>
                             <li class="list-group-item"><span class="text-muted">Registration date:</span><strong> {{ Auth::user()->created_at }}</strong></li>
                             <li class="list-group-item"><span class="text-muted">Posts quantity:</span><strong> {{ Auth::user()->posts->count() }}</strong></li>

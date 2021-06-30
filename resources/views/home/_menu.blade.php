@@ -7,7 +7,7 @@
             <a class="nav-link @linkactive('home')" href="{{ route('home.home') }}">My posts <span class="badge bg-primary rounded-pill">{{ Auth::user()->posts->count() }}</span></a>
             <a class="nav-link @linkactive('home/post/create')" href="{{ route('home.create') }}">Create post</a>
             <a class="nav-link @linkactive('home/profile')" href="{{ route('home.profile') }}">My profile</a>
-            @if(Auth::user()->id == 6)
+            @if(Auth::user()->id == env('ADMIN_ID'))
                 <a class="nav-link @linkactive('home/report')" href="{{ route('home.report') }}">Report</a>
             @endif
 
