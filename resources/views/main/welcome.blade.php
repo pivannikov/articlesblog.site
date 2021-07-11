@@ -47,8 +47,9 @@
         <div class="row mt-5">
             <div class="col-md-12">
                 <h3 class="font-weight-bold">About this blog</h3>
-                <p class="text-justify">You can register to post an article or use ready-made credentials:</p>
-                <p class="text-justify">Login: user@example.com <br>Password: user1234</p>
+                <p class="text-justify">An example of a simple blog developed in Laravel (version 7).
+It is possible to register users. Also for registered users is avalaible to create, delete and edit their articles. The administrator has the ability to edit and delete articles of all users at his own discretion.<br> You can register to post an article or use ready-made credentials:</p>
+                <p class="text-justify">Login: user@example.com<br>Password: user1234</p>
             </div>
         </div>
 

@@ -20,7 +20,7 @@
             </div>
         </div>
 
-        @if(Auth::user()->id == 6)
+        @if(Auth::user()->id == env('ADMIN_ID'))
             <div class="row">
                 <div class="col-md-12 mt-5 mb-5">
                     <h4>Users table:</h4>
